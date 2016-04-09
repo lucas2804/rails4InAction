@@ -1,0 +1,15 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>
+      Editing <small><%= link_to sub_category,  @sub_category %></small>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to "Sub_categories", sub_categories_path %></li>
+        <li class="active">Edit</li>
+      </ol>
+    </h1>
+  </section>
+<% end %>
+
+<%= render 'form' %>

@@ -1,0 +1,64 @@
+<style>
+  .login-box{
+    width: 360px;
+    margin: 7% auto;
+    padding: 30px;
+    background: white;
+  }
+
+
+   h4 {
+    color:#444 !important;
+    text-align: center;
+    font-size: 30px;
+  }
+    .login-box-body{
+      margin-top: 30px;
+    }
+    body{
+      background: #d2d6de;
+    }
+
+    button[type="submit"]{
+      border-radius: 0px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .login-box label{
+        font-weight: 500;
+    }
+
+</style>
+<div class="login-box">
+  <div>
+    <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+  </div>
+  <div class="login-box-body">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group has-feedback">
+          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username/Email</label>
+          <%= f.text_field :signin, autofocus: true, class: "form-control", placeholder: "Username or Email" %>
+        </div>
+        <div class="form-group has-feedback">
+          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+          <%= f.password_field :password, autocomplete: "off" ,class: "form-control", placeholder: "Password"%>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+        <% end -%>
+
+        <button type="submit" class="btn btn-primary btn-block btn-flat"><span class="glyphicon glyphicon-off"></span> Login</button>
+    <% end %>
+  </div>
+
+
+  <%= render "devise/shared/links" %>
+
+</div>
