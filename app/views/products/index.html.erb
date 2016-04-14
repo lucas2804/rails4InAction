@@ -1,0 +1,62 @@
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1>Listing
+        <small>Product</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Product</li>
+      </ol>
+    </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+            <%= link_to new_product_path(@product), :class => 'btn btn-flat bg-olive' do %>
+                <span class="glyphicon glyphicon-plus"></span>
+                New Product
+            <% end %>
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Image url</th>
+              <th>Price</th>
+              <th>Actions</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <%= content_tag_for(:tr, @products) do |product| %>
+                <td width="15%"><%= product.title %></td>
+                <td width="30%"><%= sanitize(truncate product.description, length: 100) %></td>
+                <td><%= image_tag(product.image_url, class: 'list_image', width: "100px") %></td>
+                <td><%= number_to_currency(product.price) %></td>
+                <td><%= link_to product, class: "btn btn-info btn-flat" do %>
+                      <i class="glyphicon glyphicon-list"></i>
+                  <% end %>
+                  <%= link_to edit_product_path(product), class: "btn btn-primary btn-flat" do %>
+                      <i class="glyphicon glyphicon-pencil"></i>
+                  <% end %>
+                  <%= link_to product, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-flat" do %>
+                      <i class="glyphicon glyphicon-trash"></i>
+                  <% end %>
+                </td>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  resources :brands
+  resources :line_items
+  resources :carts
+  resources :stores
+  get 'store/index'
+
+  resources :products
+  resources :test_adminltes
+  resources :test_adminltes
+
   resources :brands
   resources :categories
-  resources :brands
   resources :sub_categories
-  resources :categories
   get 'registrations/update'
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users

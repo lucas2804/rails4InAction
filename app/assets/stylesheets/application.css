@@ -18,6 +18,10 @@
  *= require iCheck/all
  *= require datatables/dataTables.bootstrap
  *= require bootstrap
+ *= require select2
+ *= require select2-bootstrap
+
+
  */
 
 .field{
@@ -49,7 +53,24 @@ aside.right-side{
     width: 100px;
 }
 
+input[type="submit"]{
+    text-transform: capitalize;
+}
 
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+    background: #333 !important;
+    color: white !important;
+}
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove{
+    color: white !important;
+}
+
+.c-cart i.fa{
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #3d9970;
+}
 
 
 

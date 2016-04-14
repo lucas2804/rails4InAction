@@ -25,17 +25,6 @@
     <%= nav_link root_path do %>
       <i class="fa fa-dashboard"></i> <span>Dashboard</span>
     <% end %>
-    <%= treeview_link 'Lots of links here' do %>
-      <%= nav_link "#" do %>
-        <i class="fa fa-angle-double-right"></i>
-        One Way
-      <% end %>
-      <%= nav_link "#" do %>
-        <i class="fa fa-angle-double-right"></i>
-        Another
-      <% end %>
-    <% end %>
-
     <%= treeview_link 'User Management' do %>
         <%= nav_link users_path do %>
             <i class="fa fa-angle-double-right"></i>
@@ -55,6 +44,25 @@
         <%= nav_link categories_path do %>
             <i class="fa fa-angle-double-right"></i>
             Categories
+        <% end %>
+        <%= nav_link sub_categories_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Subcategories
+        <% end %>
+        <%= nav_link test_adminltes_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            TestAdminlte
+        <% end %>
+    <% end %>
+
+    <%= treeview_link 'Procduct Management' do %>
+        <%= nav_link products_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Products
+        <% end %>
+        <%= nav_link stores_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Stores
         <% end %>
     <% end %>
   </ul>

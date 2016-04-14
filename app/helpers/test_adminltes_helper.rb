@@ -1,0 +1,2 @@
+module TestAdminltesHelper
+end

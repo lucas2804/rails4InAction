@@ -17,7 +17,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="skin-blue">
+<body class="skin-black <%= controller.controller_name %>">
 
   <%= render "layouts/application_header" %>
 

@@ -1,0 +1,58 @@
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1>Listing
+        <small>Store</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Store</li>
+      </ol>
+    </section>
+<% end %>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <div class="box-tools pull-right">
+
+          </div>
+        </div>
+        <div class="box-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @products = Product.order(:title) %>
+            <% cache ['store', Product.latest] do %>
+                <%= content_tag_for(:tr, @products) do |product| %>
+                    <td width="15%"><%= product.title %></td>
+                    <td width="30%"><%= sanitize product.description %></td>
+                    <td><%= image_tag(product.image_url, class: 'list_image', width: "100px") %></td>
+                    <td><%= number_to_currency(product.price) %></td>
+                    <td>
+                      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+
+                      <%= link_to line_items_path(product_id: product), class: "c-cart" do %>
+                          <i class="fa fa-cart-plus"></i>
+                      <% end %>
+                    </td>
+                <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

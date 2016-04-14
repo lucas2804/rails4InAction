@@ -1,0 +1,13 @@
+<td>
+  <%=  object = locals[:object] %>
+
+  <%= link_to  object, class: "btn btn-info btn-flat" do %>
+      <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+  <%= link_to edit_table_path(object) , class: "btn btn-primary btn-flat" do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+  <% end %>
+  <%= link_to object, class: "btn btn-danger btn-flat", method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="glyphicon glyphicon-trash"></i>
+  <% end %>
+</td>

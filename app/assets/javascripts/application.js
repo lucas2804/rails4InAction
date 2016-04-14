@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require adminlte
 //= require 'icheck'
+//= require select2
 

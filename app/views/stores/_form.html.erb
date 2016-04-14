@@ -1,0 +1,24 @@
+<section class="content invoice">
+  <div class="row">
+    <div class="col-md-10">
+      <%= form_for(@store, :html => { :role => "form" }) do |f| %>
+        <% if @store.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <h4><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h4>
+
+            <ul>
+            <% @store.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <div class="form-group">
+        <%= f.submit :class => "btn btn-flat bg-olive" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</section> 

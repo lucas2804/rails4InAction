@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+
   end
 
   # GET /categories/1
@@ -19,24 +20,15 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @category = Category.find(params[:id])
+    #includes(:state)
+    @category = Category.includes(:sub_categories).find(params[:id])
+
   end
 
   # POST /categories
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-    if(@category.save && params[:category][:sub_ids].count > 0)
-      params[:category][:sub_ids].each do |sub_name|
-        if sub_name != nil
-          subCategory = SubCategory.new
-          subCategory.name = sub_name
-          subCategory.category_id = @category.id
-          subCategory.save
-        end
-      end
-    end
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to action:'index', notice: 'Category was successfully created.' }
@@ -51,6 +43,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }

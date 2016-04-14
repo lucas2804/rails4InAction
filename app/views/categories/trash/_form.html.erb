@@ -1,0 +1,91 @@
+<section class="content invoice">
+  <div class="row">
+    <div class="col-md-10">
+
+      <%= form_for(@category, :html => {:role => "form"}) do |f| %>
+          <% if @category.errors.any? %>
+              <div class="alert alert-danger alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                <h4><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h4>
+
+                <ul>
+                  <% @category.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="form-group col-md-12">
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
+          </div>
+          <style>
+            .subcate-text {
+              width: 50% !important;
+              float: left;
+              margin-right: 20px;
+            }
+
+            .subcate-add {
+              margin-bottom: 20px;
+            }
+
+          </style>
+          <div class="subcate-wrapper">
+            <label class="col-md-12 subcate-label">Subcategory</label>
+            <% sub_categories_when_edit = @category.sub_categories %>
+            <% if (sub_categories_when_edit.count > 0) %>
+                <% sub_categories_when_edit.each do |sub_category| %>
+                    <div class="form-group col-md-12">
+                      <input value="<%= sub_category.id %>" type="text" placeholder="Subcategory Name" class="form-control subcate-text"
+                             name="category[sub_ids][<%= sub_category.name %>]"/>
+                      <input type="button" class="btn btn-danger subcate-remove" value="Remove"/>
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="form-group col-md-12">
+                  <input type="text" placeholder="Subcategory Name" class="form-control subcate-text" name="category[sub_ids][]"/>
+                  <input type="button" class="btn btn-danger subcate-remove" value="Remove"/>
+                </div>
+            <% end %>
+
+          </div>
+          <div class="form-group col-md-12">
+            <input type="button" class="btn btn-success subcate-add" value="Add">
+          </div>
+          <div class="form-group col-md-12">
+            <%= f.label :published %>
+            <%= f.check_box :published %>
+          </div>
+
+          <div class="form-group col-md-12">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+
+      // Action Remove
+      $('input.subcate-remove').click(function () {
+        $(this).parent().remove();
+      })
+
+      // Action Add
+      $('input.subcate-add').click(function () {
+        var html = createDivSubcateWrapper();
+        $('div.subcate-wrapper').append(html);
+      })
+
+      function createDivSubcateWrapper() {
+        return '<div class="form-group col-md-12"> ' +
+            '<input type="text"  placeholder="Subcategory Name" class="form-control subcate-text" name="category[sub_ids][]" /> ' +
+            '<input type="button"class="btn btn-danger subcate-remove" value="Remove"  /> ' +
+            '</div>'
+      }
+    });
+  </script>
+</section> 

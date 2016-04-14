@@ -19,6 +19,7 @@ class SubCategoriesController < ApplicationController
 
   # GET /sub_categories/1/edit
   def edit
+    @sub_category = SubCategory.find(params[:id])
   end
 
   # POST /sub_categories
