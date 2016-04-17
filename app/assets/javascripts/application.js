@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 
-//= require_tree
+
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/effect-blind
 //= require turbolinks
 //= require bootstrap
 //= require adminlte
 //= require 'icheck'
 //= require select2
-
+//= require_tree

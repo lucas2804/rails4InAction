@@ -1,5 +1,9 @@
 class StoresController < ApplicationController
+  include CurrentCart
+
+  before_action :set_cart
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+
 
   # GET /stores
   # GET /stores.json

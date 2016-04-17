@@ -72,5 +72,34 @@ input[type="submit"]{
     color: #3d9970;
 }
 
+.c-cart-show.header{
+    color: #3d9970;
+    font-size: 25px;
+    min-width: 200px;
+}
 
 
+.c-cart-show.header span{
+    margin-right: 15px;
+}
+
+ul.c-pop-cart{
+    min-width: 300px;
+}
+
+section.sidebar .c-cart-show.header{
+    font-size: 20px !important;
+    background: white;
+    margin: 0px;
+    padding-bottom: 20px;
+
+}
+section.sidebar table{
+    background: white;
+}
+section.sidebar td{
+    padding: 0px !important;
+}
+section.sidebar tfoot th:last-child{
+    padding: 6px;
+}

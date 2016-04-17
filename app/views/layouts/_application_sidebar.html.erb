@@ -2,7 +2,7 @@
   <!-- Sidebar user panel -->
   <div class="user-panel">
     <div class="pull-left image">
-      <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+      <img src="/img/avatar3.png" class="img-circle" alt="User Image"/>
     </div>
     <div class="pull-left info">
       <p>Hello, Jane</p>
@@ -23,7 +23,7 @@
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
     <%= nav_link root_path do %>
-      <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
     <% end %>
     <%= treeview_link 'User Management' do %>
         <%= nav_link users_path do %>
@@ -64,6 +64,18 @@
             <i class="fa fa-angle-double-right"></i>
             Stores
         <% end %>
+        <%= nav_link orders_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Orders
+        <% end %>
     <% end %>
   </ul>
+
+  <span class="c-cart">
+    <% if @cart = Cart.find(session[:cart_id]) %>
+      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+          <%= render @cart %>
+        <% end %>
+    <% end %>
+  </span>
 </section>

@@ -33,19 +33,24 @@
             </thead>
             <tbody>
             <% @products = Product.order(:title) %>
-            <% cache ['store', Product.latest] do %>
+            <% cache ['stores', Product.latest] do %>
                 <%= content_tag_for(:tr, @products) do |product| %>
-                    <td width="15%"><%= product.title %></td>
-                    <td width="30%"><%= sanitize product.description %></td>
-                    <td><%= image_tag(product.image_url, class: 'list_image', width: "100px") %></td>
-                    <td><%= number_to_currency(product.price) %></td>
-                    <td>
-                      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
 
-                      <%= link_to line_items_path(product_id: product), class: "c-cart" do %>
-                          <i class="fa fa-cart-plus"></i>
-                      <% end %>
-                    </td>
+                    <% cache ['entry', product] do %>
+                        <div class="entry">
+                          <td width="15%"><%= product.title %></td>
+                          <td width="30%"><%= sanitize product.description %></td>
+                          <td><%= image_tag(product.image_url, class: 'list_image', width: "100px") %></td>
+                          <td><%= number_to_currency(product.price) %></td>
+                          <td>
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product),
+                                          remote: true %>
+                            <%= link_to line_items_path(product_id: product), class: "c-cart" do %>
+                                <i class="fa fa-cart-plus"></i>
+                            <% end %>
+                          </td>
+                        </div>
+                    <% end %>
                 <% end %>
             <% end %>
             </tbody>
