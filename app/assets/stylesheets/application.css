@@ -103,3 +103,20 @@ section.sidebar td{
 section.sidebar tfoot th:last-child{
     padding: 6px;
 }
+
+
+.c-add-to-cart{
+    color: white;
+    background: #333;
+    border: none;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    padding: 9px 18px;
+    min-width: 170px;
+}
+
+.c-add-to-cart:hover{
+    transition: background-color .3s,color .5s;
+    color: #333;
+    background: white;
+}

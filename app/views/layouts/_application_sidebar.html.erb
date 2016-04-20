@@ -35,7 +35,16 @@
             Roles
         <% end %>
     <% end %>
-
+    <%= treeview_link 'Content Management' do %>
+        <%= nav_link posts_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Users
+        <% end %>
+        <%= nav_link "#" do %>
+            <i class="fa fa-angle-double-right"></i>
+            Roles
+        <% end %>
+    <% end %>
     <%= treeview_link 'Category Management' do %>
         <%= nav_link brands_path do %>
             <i class="fa fa-angle-double-right"></i>
@@ -55,7 +64,7 @@
         <% end %>
     <% end %>
 
-    <%= treeview_link 'Procduct Management' do %>
+    <%= treeview_link 'Cart - Multi Language' do %>
         <%= nav_link products_path do %>
             <i class="fa fa-angle-double-right"></i>
             Products
@@ -72,10 +81,6 @@
   </ul>
 
   <span class="c-cart">
-    <% if @cart = Cart.find(session[:cart_id]) %>
-      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-          <%= render @cart %>
-        <% end %>
-    <% end %>
+
   </span>
 </section>

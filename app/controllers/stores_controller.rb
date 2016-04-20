@@ -8,12 +8,18 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
+    if params[:set_locale]
+      flash[:notice] = "We've just completed multi language for -Cart Multi Language- module. Please take a look at -Cart- to observe the changes "
+      redirect_to stores_url(locale: params[:set_locale])
+    else
+      @products = Product.order(:title)
+    end
   end
 
   # GET /stores/1
   # GET /stores/1.json
   def show
+    asd
   end
 
   # GET /stores/new

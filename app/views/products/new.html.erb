@@ -1,11 +1,11 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>New <small>Product</small></h1>
+    <h1><%= translate("new") %> <small><%= translate("product") %></small></h1>
 
     <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><%= link_to "Product", products_path %></li>
-      <li class="active">New</li>
+      <li><a href="/"><i class="fa fa-dashboard"></i> <%= translate("home") %></a></li>
+      <li><%= link_to translate("product"), products_path %></li>
+      <li class="active"><%= translate("new") %></li>
     </ol>
   </section>
 <% end %>

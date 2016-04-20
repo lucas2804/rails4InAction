@@ -6,7 +6,12 @@ gem 'font-awesome-sass'
 gem 'adminlte-generators'
 gem 'adminlte-rails'
 gem 'icheck-rails'
-gem "select2-rails"
+gem 'select2-rails'
+gem 'globalize'
+gem 'cancan'
+gem 'pundit'
+
+gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 
@@ -45,6 +50,7 @@ group :development, :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace', '0.1.3'
   gem 'guard-minitest', '2.3.1'
+  gem 'capybara'
 end
 
 group :development do

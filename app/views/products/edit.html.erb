@@ -2,9 +2,9 @@
   <section class="content-header">
     <h1>
       <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><%= link_to "Products", products_path %></li>
-        <li class="active">Edit</li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> <%= translate("home") %></a></li>
+        <li><%= link_to translate("product"), products_path %></li>
+        <li class="active"><%= translate("edit") %></li>
       </ol>
     </h1>
   </section>

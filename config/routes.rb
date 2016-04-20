@@ -1,29 +1,53 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :line_items
-  resources :carts
-  resources :stores
-  get 'store/index'
+  resources :projects
+  resources :projects
+  resources :projects
+  resources :projects
+  resources :projects
+  resources :projects
+  get 'projects/create'
 
-  resources :products
-  resources :test_adminltes
-  resources :test_adminltes
+  get 'projects/new'
 
+  get 'projects/index'
+  resources :projects
+  namespace :admin do
+    get 'application/index'
+    root "application#index"
+  end
+
+  resources :posts
+  namespace :admin do
+    resources :books
+  end
+  resources :products do
+    get :who_bought, on: :member
+  end
+  resources :test_adminltes
   resources :brands
   resources :categories
   resources :sub_categories
   get 'registrations/update'
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
+
   get 'home/index'
 
+  # locale is optional field
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    resources :stores
+    get 'store/index'
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'projects#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

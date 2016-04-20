@@ -16,19 +16,19 @@
           <% end %>
 
           <div class="form-group">
-            <%= f.label :name %>
+            <%= f.label translate("name") %>
             <%= f.text_field :name, size: 40 ,:class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :address %>
+            <%= f.label translate("address") %>
             <%= f.text_area :address, rows:5, cols: 40, :class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :email %>
+            <%= f.label translate("email") %>
             <%= f.text_field :email, size:40 ,:class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :pay_type %>
+            <%= f.label translate("pay_type") %>
             <%= f.select :pay_type, Order::PAYMENT_TYPES ,{prompt: "Select a payment method"},class: "form-control"%>
           </div>
           <div class="form-group">

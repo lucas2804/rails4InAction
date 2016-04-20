@@ -1,14 +1,13 @@
-<%= debug session[:cart] %>
-
-<% content_for :content_header  do %>
-  <section class="content-header">
-    <h1>Listing <small>Order</small></h1>
-
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Order</li>
-    </ol>    
-  </section>
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1><%= translate("listing") %>
+        <small><%= translate("order") %></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> <%= translate("home") %></a></li>
+        <li class="active"><%= translate("order") %></li>
+      </ol>
+    </section>
 <% end %>
 
 <section class="content">
@@ -18,40 +17,38 @@
         <div class="box-header">
           <div class="box-tools pull-right">
             <%= link_to new_order_path(@order), :class => 'btn btn-flat bg-olive' do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              New Order
-            <% end %>          
+                <span class="glyphicon glyphicon-plus"></span>
+                <%= translate("orders.index.new_order") %>
+            <% end %>
           </div>
         </div>
         <div class="box-body table-responsive">
           <table class="table table-hover">
             <thead>
-              <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Email</th>
-              <th>Pay type</th>
-                            <th></th>
-                <th></th>
-                <th></th>
-              </tr>
+            <tr>
+              <th><%= translate("name") %></th>
+              <th><%= translate("address") %></th>
+              <th><%= translate("email") %></th>
+              <th><%= translate("pay_type") %></th>
+              <th><%= translate("action") %></th>
+            </tr>
             </thead>
             <tbody>
-              <%= content_tag_for(:tr, @orders) do |order| %>
-              <td><%= order.name %></td>
-              <td><%= order.address %></td>
-              <td><%= order.email %></td>
-              <td><%= order.pay_type %></td>
-                        <td><%= link_to order, class: "btn btn-info btn-flat" do %>
-              <i class="glyphicon glyphicon-list"></i>
-              <% end %>
-              <%= link_to edit_order_path(order), class: "btn btn-primary btn-flat" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
-              <%= link_to order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-flat" do %>
-              <i class="glyphicon glyphicon-trash"></i>
-              <% end %>
-            </td>
+            <%= content_tag_for(:tr, @orders) do |order| %>
+                <td><%= order.name %></td>
+                <td><%= order.address %></td>
+                <td><%= order.email %></td>
+                <td><%= order.pay_type %></td>
+                <td><%= link_to order, class: "btn btn-info btn-flat" do %>
+                      <i class="glyphicon glyphicon-list"></i>
+                  <% end %>
+                  <%= link_to edit_order_path(order), class: "btn btn-primary btn-flat" do %>
+                      <i class="glyphicon glyphicon-pencil"></i>
+                  <% end %>
+                  <%= link_to order, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger btn-flat" do %>
+                      <i class="glyphicon glyphicon-trash"></i>
+                  <% end %>
+                </td>
             <% end %>
             </tbody>
           </table>

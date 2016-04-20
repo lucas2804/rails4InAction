@@ -1,12 +1,12 @@
 <% content_for :content_header do %>
     <section class="content-header">
-      <h1>Listing
-        <small>Product</small>
+      <h1><%= translate("listing") %>
+        <small><%= translate("product") %></small>
       </h1>
 
       <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Product</li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> <%= translate("home") %></a></li>
+        <li class="active"><%= translate("product") %></li>
       </ol>
     </section>
 <% end %>
@@ -19,7 +19,7 @@
           <div class="box-tools pull-right">
             <%= link_to new_product_path(@product), :class => 'btn btn-flat bg-olive' do %>
                 <span class="glyphicon glyphicon-plus"></span>
-                New Product
+                <%= translate(".new_product") %>
             <% end %>
           </div>
         </div>
@@ -27,12 +27,11 @@
           <table class="table table-hover">
             <thead>
             <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Image url</th>
-              <th>Price</th>
-              <th>Actions</th>
-
+              <th><%= translate("title")%></th>
+              <th><%= translate("description")%></th>
+              <th><%= translate("image")%></th>
+              <th><%= translate("price")%></th>
+              <th><%= translate("action")%></th>
             </tr>
             </thead>
             <tbody>
