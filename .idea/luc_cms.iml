@@ -135,9 +135,25 @@
       <sourceFolder url="file://$MODULE_DIR$/bacon/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.bundle" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
-      <excludeFolder url="file://$MODULE_DIR$/app/helpers" />
       <excludeFolder url="file://$MODULE_DIR$/app/mailers" />
       <excludeFolder url="file://$MODULE_DIR$/app/policies" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/admin" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/brands" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/carts" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/categories" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/devise" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/home" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/layouts" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/line_items" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/order_notifier" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/orders" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/posts" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/products" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/registrations" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/stores" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/sub_categories" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/test_adminltes" />
+      <excludeFolder url="file://$MODULE_DIR$/app/views/users" />
       <excludeFolder url="file://$MODULE_DIR$/bacon" />
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/components" />
@@ -150,6 +166,10 @@
       <excludeFolder url="file://$MODULE_DIR$/log" />
       <excludeFolder url="file://$MODULE_DIR$/public" />
       <excludeFolder url="file://$MODULE_DIR$/public/system" />
+      <excludeFolder url="file://$MODULE_DIR$/spec/controllers" />
+      <excludeFolder url="file://$MODULE_DIR$/spec/requests" />
+      <excludeFolder url="file://$MODULE_DIR$/spec/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/spec/views" />
       <excludeFolder url="file://$MODULE_DIR$/test" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />

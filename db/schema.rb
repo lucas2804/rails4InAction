@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420084430) do
+ActiveRecord::Schema.define(version: 20160420162406) do
 
   create_table "_users_old_20160419", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -149,6 +149,15 @@ ActiveRecord::Schema.define(version: 20160420084430) do
   end
 
   create_table "test_adminltes", force: :cascade do |t|
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -63,7 +63,13 @@
             TestAdminlte
         <% end %>
     <% end %>
+    <%= treeview_link 'Project Management' do %>
+        <%= nav_link projects_path do %>
+            <i class="fa fa-angle-double-right"></i>
+            Projects
+        <% end %>
 
+    <% end %>
     <%= treeview_link 'Cart - Multi Language' do %>
         <%= nav_link products_path do %>
             <i class="fa fa-angle-double-right"></i>

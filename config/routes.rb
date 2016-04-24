@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  resources :projects
-  resources :projects
-  resources :projects
-  resources :projects
-  resources :projects
-  resources :projects
-  get 'projects/create'
-
-  get 'projects/new'
-
-  get 'projects/index'
-  resources :projects
+  resources :tickets
+  resources :projects do
+    resources :tickets
+  end
   namespace :admin do
     get 'application/index'
     root "application#index"
