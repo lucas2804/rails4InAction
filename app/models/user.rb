@@ -13,10 +13,17 @@ class User < ActiveRecord::Base
 
   # Archive User instead of destroy user
   scope :excluding_archived, lambda { where(archived_at: nil) }
+  def active_for_authentication?
+    super && archived_at.nil?
+  end
   def archive
     self.update(archived_at: Time.now)
   end
+  def inactive_message
+    archived_at.nil? ? super : :archived
+  end
 
+  # DEVISE LOGIN
   attr_accessor :signin
   def signin(signin)
     @signin = signin
