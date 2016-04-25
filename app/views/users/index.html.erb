@@ -1,12 +1,14 @@
-<% content_for :content_header  do %>
-  <section class="content-header">
-    <h1>Listing <small>users</small></h1>
+<% content_for :content_header do %>
+    <section class="content-header">
+      <h1>Listing
+        <small>users</small>
+      </h1>
 
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">users</li>
-    </ol>    
-  </section>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">users</li>
+      </ol>
+    </section>
 <% end %>
 
 <section class="content">
@@ -15,31 +17,43 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to new_user_registration_path, :class => 'btn btn-success' do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              New User
-            <% end %>          
+            <%= link_to new_user_registration_path, :class => 'btn btn-flat bg-olive' do %>
+                <span class="glyphicon glyphicon-plus"></span>
+                New User
+            <% end %>
           </div>
         </div>
         <div class="box-body table-responsive">
           <table class="table table-hover">
             <thead>
-              <tr>
+            <tr>
               <th>Username</th>
               <th>Email</th>
-                            <th></th>
-                <th></th>
-                <th></th>
-              </tr>
+              <th>Admin</th>
+              <th>Action</th>
+            </tr>
             </thead>
             <tbody>
-              <%= content_tag_for(:tr, @users) do |user| %>
-              <td><%= user.username %></td>
-              <td><%= user.email %></td>
-                            <td><%= link_to 'Show', user %></td>
-                <td><%= link_to 'Edit', edit_user_registration_path(user) %></td>
-                <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
+            <%= content_tag_for(:tr, @users) do |user| %>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                  <% if user.admin == true %>
+                    <td><span class="label label-success">Super admin</span></td>
+                  <% else %>
+                    <td><span class="label label-warning">User</span></td>
+                  <% end %>
+                <td>
+
+                  <%= link_to edit_user_registration_path(user), class: "btn btn-default btn-flat" do %>
+                      <i class="glyphicon glyphicon-pencil"></i>
+                  <% end %>
+
+                  <%= link_to user, class: "btn btn-danger btn-flat", method: :delete, data: {confirm: 'Are you sure?'} do %>
+                      <i class="glyphicon glyphicon-trash"></i>
+                  <% end %>
+                </td>
+
+            <% end %>
             </tbody>
           </table>
         </div>

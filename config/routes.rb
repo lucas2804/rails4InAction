@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   resources :tickets
-  resources :projects do
+
+  # Non-Admin
+  resources :projects, only: [:index, :show, :edit, :update] do
     resources :tickets
   end
+
+  #Admin
   namespace :admin do
-    get 'application/index'
     root "application#index"
+    resources :projects, only: [:new, :create, :destroy]
   end
+
 
   resources :posts
   namespace :admin do
@@ -20,8 +25,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :sub_categories
   get 'registrations/update'
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+
+  resources :users, only: [:index]
+
+  devise_for :users
+  delete 'user' => 'devise/registrations#destroy'
 
   get 'home/index'
 

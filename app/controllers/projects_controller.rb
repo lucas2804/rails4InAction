@@ -12,29 +12,8 @@ class ProjectsController < ApplicationController
   def show
   end
 
-  # GET /projects/new
-  def new
-    @project = Project.new
-  end
-
   # GET /projects/1/edit
   def edit
-  end
-
-  # POST /projects
-  # POST /projects.json
-  def create
-    @project = Project.new(project_params)
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        flash[:notice] = 'Project has not been created.'
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /projects/1
@@ -49,16 +28,6 @@ class ProjectsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /projects/1
-  # DELETE /projects/1.json
-  def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project has been deleted.' }
-      format.json { head :no_content }
     end
   end
 

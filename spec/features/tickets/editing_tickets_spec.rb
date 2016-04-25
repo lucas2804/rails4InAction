@@ -1,9 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "A sample test" do
+  let(:user) { FactoryGirl.create(:user) }
   let!(:project) { FactoryGirl.create(:project) }
-  let(:ticket) { FactoryGirl.create(:ticket) }
+  let(:ticket) { FactoryGirl.create(:ticket, author: user) }
   it "lazily loads `let` methods" do
+    login_as(user)
     puts Project.count  # let! create project immediately
     puts Ticket.count   # Still not call from ticket instance => count = 0
     puts ticket.name    # Start to call from ticket instance
@@ -15,8 +17,10 @@ end
 
 
 RSpec.feature "Users can edit existing tickets" do
+  let(:user) { FactoryGirl.create(:user) }
   let(:project) { FactoryGirl.create(:project) }
-  let(:ticket) { FactoryGirl.create(:ticket, project: project) }
+  let(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
+
   before do
     visit project_ticket_path(project, ticket)
     click_link "Edit Ticket"

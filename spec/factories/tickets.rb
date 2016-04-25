@@ -5,5 +5,6 @@ FactoryGirl.define do
     title "Ticket titile"
     name "Ticket Name"
     description "Ticket Description"
+
   end
 end

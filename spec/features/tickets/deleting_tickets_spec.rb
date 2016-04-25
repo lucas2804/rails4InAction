@@ -1,8 +1,10 @@
 require "rails_helper"
 RSpec.feature "Users can delete tickets" do
-  let(:project) { FactoryGirl.create(:project) }
-  let(:ticket) { FactoryGirl.create(:ticket, project: project) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:project) { FactoryGirl.create(:project) }
+  let!(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
   before do
+    login_as(user)
     visit project_ticket_path(project, ticket)
   end
   scenario "successfully" do

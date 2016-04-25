@@ -28,6 +28,7 @@ class TicketsController < ApplicationController
   def create
     # @ticket = Ticket.new(ticket_params)
     @ticket = @project.tickets.build(ticket_params)
+    @ticket.author = current_user
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to [@project, @ticket], notice: 'Ticket has been created."' }
@@ -58,9 +59,9 @@ class TicketsController < ApplicationController
   # DELETE /tickets/1
   # DELETE /tickets/1.json
   def destroy
-    # @ticket.destroy
+    @ticket.destroy
     respond_to do |format|
-      format.html { redirect_to [@project], notice: 'Ticket has been deleted.' }
+      format.html { redirect_to @project, notice: 'Ticket has been deleted.' }
       format.json { head :no_content }
     end
   end
