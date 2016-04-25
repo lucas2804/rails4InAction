@@ -36,11 +36,7 @@
             <tbody>
             <%= content_tag_for(:tr, @users) do |user| %>
                 <td><%= user.username %></td>
-                <td>
-                  <% @users.each do |user| %>
-                      <%= link_to user.email, [:admin, user] %>
-                  <% end %>
-                </td>
+                <td><%= link_to user.email, [:admin, user] %></td>
                 <% if user.admin == true %>
                     <td><span class="label label-success">Super admin</span></td>
                 <% else %>

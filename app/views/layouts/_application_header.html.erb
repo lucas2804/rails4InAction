@@ -43,14 +43,23 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="#" class="btn btn-primary btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <%= button_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-default btn-flat" %>
+                    <%= button_to "Sign out", destroy_user_session_path, method: "delete", class: "btn btn-warning btn-flat" %>
                   </div>
                 </li>
               </ul>
             </li>
+
+            <li class="<%= "active" if current_page?("/") %>">
+              <%= link_to "Home", root_path %>
+            </li>
+            <% admins_only do %>
+                <li>
+                  <%= link_to "Admin", admin_root_path %>
+                </li>
+            <% end %>
         <% end %>
 
 

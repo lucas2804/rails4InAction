@@ -16,7 +16,7 @@ class Admin::ProjectsController < Admin::ApplicationController
   end
 
   def destroy
-    # @project.destroy
+    @project.destroy
     flash[:notice] = "Project has been deleted."
     redirect_to projects_path
   end
