@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
          # :confirmable,
          :authentication_keys => [:signin]
 
+
+  # Archive User instead of destroy user
+  scope :excluding_archived, lambda { where(archived_at: nil) }
+  def archive
+    self.update(archived_at: Time.now)
+  end
+
   attr_accessor :signin
   def signin(signin)
     @signin = signin

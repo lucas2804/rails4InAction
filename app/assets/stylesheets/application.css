@@ -124,3 +124,6 @@ section.sidebar tfoot th:last-child{
 .btn-flat{
     color: white !important;
 }
+.btn-flat.btn-default{
+    color: #333 !important;
+}

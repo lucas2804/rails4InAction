@@ -1,10 +1,21 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
+
+  def archive
+    if @user == current_user
+      flash[:alert] = "You cannot archive yourself!"
+    else
+      @user.archive
+      flash[:notice] = "User has been archived."
+    end
+
+    redirect_to admin_users_path
+  end
 
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.order(:email)
+    @users = User.excluding_archived.order(:email)
   end
 
   # GET /admin/users/1
@@ -32,9 +43,27 @@ class Admin::UsersController < Admin::ApplicationController
     end
   end
 
+  def update
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+    end
+    if @user.update(user_params)
+      flash[:notice] = "User has been updated."
+      redirect_to admin_users_path
+    else
+      flash.now[:alert] = "User has not been updated."
+      render "edit"
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :username)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end

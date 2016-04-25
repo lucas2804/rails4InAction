@@ -15,7 +15,8 @@
     <div class="input-group">
       <input type="text" name="q" class="form-control" placeholder="Search..."/>
       <span class="input-group-btn">
-        <button style="margin-top:0px" type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+        <button style="margin-top:0px" type='submit' name='search' id='search-btn' class="btn btn-flat">
+          <i class="fa fa-search"></i></button>
       </span>
     </div>
   </form>
@@ -25,16 +26,20 @@
     <%= nav_link root_path do %>
         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
     <% end %>
-    <%= treeview_link 'User Management' do %>
-        <%= nav_link users_path do %>
-            <i class="fa fa-angle-double-right"></i>
-            Users
-        <% end %>
-        <%= nav_link "#" do %>
-            <i class="fa fa-angle-double-right"></i>
-            Roles
+    <% admins_only do %>
+        <%= treeview_link 'User Management' do %>
+
+            <%= nav_link admin_users_path do %>
+                <i class="fa fa-angle-double-right"></i>
+                Users
+            <% end %>
+            <%= nav_link "#" do %>
+                <i class="fa fa-angle-double-right"></i>
+                Roles
+            <% end %>
         <% end %>
     <% end %>
+
     <%= treeview_link 'Content Management' do %>
         <%= nav_link posts_path do %>
             <i class="fa fa-angle-double-right"></i>
