@@ -5,6 +5,7 @@ RSpec.describe "A sample test" do
   let!(:project) { FactoryGirl.create(:project) }
   let(:ticket) { FactoryGirl.create(:ticket, author: user) }
   it "lazily loads `let` methods" do
+    assign_role!(user, :viewer, project)
     login_as(user)
     puts Project.count  # let! create project immediately
     puts Ticket.count   # Still not call from ticket instance => count = 0
@@ -22,6 +23,9 @@ RSpec.feature "Users can edit existing tickets" do
   let(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
 
   before do
+    assign_role!(user, :viewer, project)
+    login_as(user)
+
     visit project_ticket_path(project, ticket)
     click_link "Edit Ticket"
   end

@@ -11,6 +11,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    authorize @ticket, :show?
   end
 
   # GET /tickets/new
