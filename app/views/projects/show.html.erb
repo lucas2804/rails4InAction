@@ -17,10 +17,14 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to edit_project_path(@project), {:class => 'btn btn-flat btn-primary'} do %>
-                <span class="glyphicon glyphicon-pencil"></span>
-                Edit Project
+
+            <% if policy(@project).update? %>
+                <%= link_to edit_project_path(@project), {:class => 'btn btn-flat btn-primary'} do %>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    Edit Project
+                <% end %>
             <% end %>
+
             <%= link_to "New Ticket", new_project_ticket_path(@project), :class => 'btn btn-flat btn-warning' %>
 
             <% admins_only do %>
