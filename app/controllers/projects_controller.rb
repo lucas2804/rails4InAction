@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    authorize @project, :update?
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project has been updated.' }
@@ -30,6 +31,7 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
