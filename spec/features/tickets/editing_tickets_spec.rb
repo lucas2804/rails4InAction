@@ -18,7 +18,7 @@ end
 
 
 RSpec.feature "Users can edit existing tickets" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, :admin) }
   let(:project) { FactoryGirl.create(:project) }
   let(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
 

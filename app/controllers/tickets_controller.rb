@@ -64,6 +64,7 @@ class TicketsController < ApplicationController
   # DELETE /tickets/1
   # DELETE /tickets/1.json
   def destroy
+    authorize @ticket, :destroy?
     @ticket.destroy
     respond_to do |format|
       format.html { redirect_to @project, notice: 'Ticket has been deleted.' }
