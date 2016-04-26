@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
 
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :not_authorized
-
+  after_action :verify_authorized, except: [:index],
+               unless: :devise_controller?
+  after_action :verify_policy_scoped, only: [:index],
+               unless: :devise_controller?
 
   before_action :set_i18n_locale_from_params
   # Prevent CSRF attacks by raising an exception.

@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   end
   # GET /projects/1/edit
   def edit
+    authorize @project, :update?
   end
 
   # PATCH/PUT /projects/1
