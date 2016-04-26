@@ -23,7 +23,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
-
+    authorize @ticket, :update?
   end
 
   # POST /tickets
@@ -48,6 +48,7 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    authorize @ticket, :update?
     respond_to do |format|
       if @ticket.update(ticket_params)
         format.html { redirect_to [@project, @ticket], notice: 'Ticket has been updated.' }
