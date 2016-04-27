@@ -34,9 +34,6 @@
                             class: "btn btn-flat btn-warning" %>
             <% end %>
 
-
-
-
           </div>
         </div>
         <div class="box-body">
@@ -53,10 +50,20 @@
           <dl class="dl-horizontal author">
             <!--Author Info-->
             <dt>Author:</dt>
-            <dd><%= @ticket.author.email %></dd>
+            <dd><%= @ticket.author.try(:email) %></dd>
             <dt>Created:</dt>
             <dd><%= time_ago_in_words(@ticket.created_at) %> ago</dd>
           </dl>
+
+          <% if @ticket.attachment.present? %>
+              <h4>Attachment</h4>
+              <div class="attachment">
+                <p>
+                  <%= link_to File.basename(@ticket.attachment.url),
+                              @ticket.attachment.url %>
+                  (<%= number_to_human_size(@ticket.attachment.size) %>)
+                </p> </div>
+          <% end %>
         </div>
       </div>
     </div>

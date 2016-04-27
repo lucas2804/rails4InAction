@@ -9,7 +9,19 @@ gem 'icheck-rails'
 gem 'select2-rails'
 gem 'globalize'
 gem 'cancan'
+
+# AUTHORIZE
 gem 'pundit'
+
+# UPLOAD
+gem "carrierwave"
+
+# 7 GEM NEED TO BE INSTALLED
+gem 'awesome_print'
+gem 'meta_request'
+gem "better_errors"
+gem "binding_of_caller"
+gem 'quiet_assets'
 
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

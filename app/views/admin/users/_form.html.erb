@@ -42,14 +42,14 @@
           </header>
           <div class="roles form-group">
             <% @projects.each do |project| %>
-
-                <%= label_tag  dom_id(project), project.name %>
+                <%= label_tag  dom_id(project), project.name  %>
 
                 <%= select_tag dom_id(project),
-                               options_for_select(roles, @user.role_on(project)),
+                               options_for_select(roles, @user.role_on(project).role),
                                name: "roles[#{project.id}]",
                                class: "form-control",
                                include_blank: true %>
+
 
             <% end %>
           </div>

@@ -38,24 +38,24 @@
 
           </dl>
 
-          <dl class="dl-horizontal">
-            <% if @user.roles.any? %>
-                <ul>
-                  <% @user.roles.each do |role| %>
-                      <li><%= role.project.name %>: <%= role.role.titleize %></li>
-                  <% end %>
-                </ul>
-            <% else %>
-                <p>This user has no roles. </p>
-            <% end %>
-            <dt>Name:</dt>
-            <dd><%= @user.username %></dd>
 
-            <dt>Email:</dt>
-            <dd><%= @user.email %></dd>
-
-          </dl>
         </div>
+
+        <div class="c-role" style="margin-left: 100px; padding-bottom: 50px">
+          <header>
+            <h2>Roles</h2>
+          </header>
+          <% if @user.roles.any? %>
+              <ul>
+                <% @user.roles.each do |role| %>
+                    <li><span style="font-weight: 700"><%= role.project.name %>:</span> <%= role.role.titleize %></li>
+                <% end %>
+              </ul>
+          <% else %>
+              <p>This user has no roles.</p>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

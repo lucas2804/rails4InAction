@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425091343) do
+ActiveRecord::Schema.define(version: 20160427145423) do
 
   create_table "_users_old_20160419", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160425091343) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
+    t.string   "attachment"
   end
 
   add_index "tickets", ["author_id"], name: "index_tickets_on_author_id"

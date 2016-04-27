@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :roles
 
   def role_on(project)
-    roles.find_by(project_id: project).try(:name)
+    roles.find_by(project_id: project)
   end
 
   # Include default devise modules. Others available are:
