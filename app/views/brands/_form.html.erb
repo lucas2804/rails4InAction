@@ -34,8 +34,7 @@
             <% @subcategories = SubCategory.all %>
             <%= select_tag "brand[subcategory_ids]",
                            options_from_collection_for_select(@subcategories, "id", "name"),
-                           class: "form-control select2", multiple: "true"
-            %>
+                           class: "form-control select2", multiple: "true" %>
 
           </div>
 

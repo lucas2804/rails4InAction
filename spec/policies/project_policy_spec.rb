@@ -6,9 +6,6 @@ RSpec.describe ProjectPolicy do
 
   subject { described_class }
 
-  permissions ".scope" do
-
-  end
 
   # permissions :show? do
   #   let(:user) { FactoryGirl.create :user }
