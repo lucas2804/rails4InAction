@@ -1,4 +1,5 @@
 class SubCategoriesController < ApplicationController
+  skip_after_action :verify_authorized, :verify_policy_scoped
   before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
 
   # GET /sub_categories

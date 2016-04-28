@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  skip_after_action :verify_authorized, :verify_policy_scoped
 
   def invalid_cart
     logger.error "Attempt to access invalid cart #{params[:id]}"

@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   include CurrentCart
-
+  skip_after_action :verify_authorized, :verify_policy_scoped
   before_action :set_cart
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
@@ -19,7 +19,6 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
-    asd
   end
 
   # GET /stores/new

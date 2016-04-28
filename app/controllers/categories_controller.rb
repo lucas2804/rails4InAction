@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  skip_after_action :verify_authorized, :verify_policy_scoped
   # GET /categories
   # GET /categories.json
   def index

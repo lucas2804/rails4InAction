@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  skip_after_action :verify_authorized, :verify_policy_scoped
+
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands

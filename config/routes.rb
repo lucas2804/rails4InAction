@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :tickets
-
+  resources :attachments, only: [:show]
   # Non-Admin
   resources :projects, only: [:index, :show, :edit, :update] do
     resources :tickets

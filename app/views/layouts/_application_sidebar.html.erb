@@ -40,17 +40,8 @@
         <% end %>
     <% end %>
 
-    <%= treeview_link 'Content Management' do %>
-        <%= nav_link posts_path do %>
-            <i class="fa fa-angle-double-right"></i>
-            Posts
-        <% end %>
-        <%= nav_link "#" do %>
-            <i class="fa fa-angle-double-right"></i>
-            Comments
-        <% end %>
-    <% end %>
-    <%= treeview_link 'Category Management' do %>
+
+    <%= treeview_link 'Category Management - (Normal User)' do %>
         <%= nav_link brands_path do %>
             <i class="fa fa-angle-double-right"></i>
             Brands
@@ -68,14 +59,14 @@
             TestAdminlte
         <% end %>
     <% end %>
-    <%= treeview_link 'Project Management' do %>
+    <%= treeview_link 'Project Management -  (Authorize by Pundit/ Apply RSpec Test)' do %>
         <%= nav_link projects_path do %>
             <i class="fa fa-angle-double-right"></i>
             Projects
         <% end %>
 
     <% end %>
-    <%= treeview_link 'Cart - Multi Language' do %>
+    <%= treeview_link 'Cart Management -    (Apply Multi Language)' do %>
         <%= nav_link products_path do %>
             <i class="fa fa-angle-double-right"></i>
             Products

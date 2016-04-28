@@ -1,8 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :attachment do
-    file "MyString"
-    ticket nil
+    transient do
+      file_to_attach "spec/fixtures/speed.txt"
+    end
+    file { File.open file_to_attach }
   end
 end

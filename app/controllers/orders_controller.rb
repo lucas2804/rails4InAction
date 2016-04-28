@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_after_action :verify_authorized, :verify_policy_scoped
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]

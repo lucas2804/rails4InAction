@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_after_action :verify_authorized, :verify_policy_scoped
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def who_bought
