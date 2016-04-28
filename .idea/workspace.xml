@@ -72,8 +72,8 @@
       <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53571427">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.23809524">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -126,7 +126,6 @@
         <option value="$PROJECT_DIR$/app/models/category.rb" />
         <option value="$PROJECT_DIR$/app/controllers/stores_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20160428073947_add_project_id_to_roles.rb" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/secrets.yml" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -142,6 +141,7 @@
         <option value="$PROJECT_DIR$/app/views/stores/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_application_sidebar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_application_header.html.erb" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
       </list>
     </option>
   </component>
@@ -1137,8 +1137,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53571427">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.23809524">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="53" />
           <folding />
         </state>
       </provider>
