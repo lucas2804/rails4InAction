@@ -23,6 +23,8 @@ gem 'meta_request'
 gem "better_errors"
 gem "binding_of_caller"
 gem 'quiet_assets'
+gem 'honeybadger'
+
 
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
