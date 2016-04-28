@@ -30,6 +30,7 @@
               <th>Username</th>
               <th>Email</th>
               <th>Admin</th>
+              <th>Roles</th>
               <th>Action</th>
             </tr>
             </thead>
@@ -42,6 +43,15 @@
                 <% else %>
                     <td><span class="label label-warning">User</span></td>
                 <% end %>
+
+                <td>
+                  <ul>
+                    <% user.roles.each do |role| %>
+                        <li><span style="font-weight: 700"><%= role.project.name %>:</span> <%= role.role.titleize %>
+                        </li>
+                    <% end %>
+                  </ul>
+                </td>
                 <td>
 
                   <%= link_to edit_admin_user_path(user), class: "btn btn-default btn-flat" do %>

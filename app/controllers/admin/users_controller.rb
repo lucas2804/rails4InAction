@@ -16,7 +16,7 @@ class Admin::UsersController < Admin::ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.excluding_archived.order(id: "desc")
+    @users = User.excluding_archived.includes(:roles, {roles: :project}).order(id: "desc")
   end
 
   # GET /admin/users/1
