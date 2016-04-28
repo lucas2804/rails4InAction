@@ -16,7 +16,7 @@ class Admin::UsersController < Admin::ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.excluding_archived.order(:email)
+    @users = User.excluding_archived.order(id: "desc")
   end
 
   # GET /admin/users/1
@@ -51,7 +51,6 @@ class Admin::UsersController < Admin::ApplicationController
     if params[:user][:password].blank?
       params[:user].delete(:password)
     end
-
     User.transaction do
       @user.roles.clear
       build_roles_for(@user)

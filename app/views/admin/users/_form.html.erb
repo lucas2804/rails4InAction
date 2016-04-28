@@ -45,10 +45,10 @@
                 <%= label_tag  dom_id(project), project.name  %>
 
                 <%= select_tag dom_id(project),
-                               options_for_select(roles, @user.role_on(project).role),
-                               name: "roles[#{project.id}]",
-                               class: "form-control",
-                               include_blank: true %>
+                     options_for_select(roles, (@user.role_on(project).try(:role) if @user.nil? == false)),
+                     name: "roles[#{project.id}]",
+                     class: "form-control",
+                     include_blank: true %>
 
 
             <% end %>

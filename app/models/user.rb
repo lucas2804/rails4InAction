@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :roles
+  has_many :roles, dependent: :destroy
+
 
   def role_on(project)
     roles.find_by(project_id: project)
