@@ -3,14 +3,17 @@ if ($('#cart tr').length == 1) {
   $('#cart').show('blind', 1000);
 }
 $('.c-pop-cart .text-center').html("<%= escape_javascript render(@cart) %>");
+$('.c-pop-cart .text-center').html("<%= escape_javascript render(@cart) %>");
+
+$('tr#current_item').css({'background-color': '#3d9970'}).animate({'background-color': 'white'}, 1000);
+
 //$('section.sidebar span.c-cart').html("<%= escape_javascript render(@cart) %>");
 
 //$('.dropdown-menu.c-pop-cart').toggle(function(){
 //  $(this).animate()
 //})
-$('.dropdown-menu.c-pop-cart').css({'display': "block", 'opacity': 2000});
-
-$('tr#current_item').css({'background-color': '#3d9970'}).animate({'background-color': 'white'}, 1000);
-$('.dropdown-menu.c-pop-cart').animate({'opacity': 0}, 1500, function(){
-  $(this).hide();
-})
+//$('.dropdown-menu.c-pop-cart').css({'display': "block", 'opacity': 2000});
+//
+//$('.dropdown-menu.c-pop-cart').animate({'opacity': 0}, 1500, function(){
+//  $(this).hide();
+//})

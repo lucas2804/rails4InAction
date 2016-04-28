@@ -11,7 +11,7 @@
     </section>
 <% end %>
 
-<section class="content">
+<section class="content col-md-8">
   <div class="row">
     <div class="col-xs-12">
       <div class="box box-primary">
@@ -39,7 +39,7 @@
                     <% #cache ['entry', product] do %>
                         <div class="entry">
                           <td width="15%"><%= product.title %></td>
-                          <td width="30%"><%= sanitize product.description %></td>
+                          <td width="30%"><%= truncate(strip_tags(product.description), length: 80)%></td>
                           <td><%= image_tag(product.image_url, class: 'list_image', width: "100px") %></td>
                           <td><%= number_to_currency product.price  %></td>
                           <td>
@@ -58,3 +58,12 @@
   </div>
 </section>
 
+<div class="c-pop-cart col-md-4">
+  <div class="user-body">
+    <div class="text-center">
+      <% if session[:cart_id] && @cart = Cart.find(session[:cart_id]) %>
+          <%= render @cart %>
+      <% end %>
+    </div>
+  </div>
+</div>
