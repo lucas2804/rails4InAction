@@ -9,6 +9,7 @@ gem 'icheck-rails'
 gem 'select2-rails'
 gem 'globalize'
 gem 'cancan'
+gem 'simple_form'
 
 # AUTHORIZE
 gem 'pundit'

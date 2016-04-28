@@ -19,6 +19,8 @@ class TicketsController < ApplicationController
   def new
     @ticket = @project.tickets.build
     authorize @ticket, :create?
+    3.times { @ticket.attachments.build }
+
   end
 
   # GET /tickets/1/edit
@@ -82,8 +84,10 @@ class TicketsController < ApplicationController
     @ticket = @project.tickets.find(params[:id])
   end
 
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def ticket_params
-    params.require(:ticket).permit(:title, :description, :name, :project_id, :id, :attachment)
+    params.require(:ticket).permit(:name, :description,
+                                   attachments_attributes: [:file, :file_cache])
   end
 end
