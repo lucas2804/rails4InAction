@@ -8,4 +8,6 @@ class Ticket < ActiveRecord::Base
 
   # Apply gem "carrierwave"
   accepts_nested_attributes_for :attachments, reject_if: :all_blank
+
+  mount_uploader :attachment, AttachmentUploader
 end

@@ -67,6 +67,8 @@ group :development, :test do
   gem 'guard-minitest', '2.3.1'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem "selenium-webdriver", "~> 2.45"
+  gem "database_cleaner"
 end
 
 group :development do

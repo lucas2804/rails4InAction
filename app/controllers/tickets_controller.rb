@@ -19,7 +19,8 @@ class TicketsController < ApplicationController
   def new
     @ticket = @project.tickets.build
     authorize @ticket, :create?
-    3.times { @ticket.attachments.build }
+    # 3.times { @ticket.attachments.build }
+    @ticket.attachments.build
 
   end
 
@@ -37,7 +38,7 @@ class TicketsController < ApplicationController
     authorize @ticket, :create?
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to [@project, @ticket], notice: 'Ticket has been created."' }
+        format.html { redirect_to [@project, @ticket], notice: 'Ticket has been created.' }
         format.json { render :show, status: :created, location: @ticket }
       else
         flash[:notice] = 'Ticket has not been created.'
@@ -87,7 +88,7 @@ class TicketsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ticket_params
-    params.require(:ticket).permit(:name, :description,
+    params.require(:ticket).permit(:name, :description, :attachment,
                                    attachments_attributes: [:file, :file_cache])
   end
 end

@@ -3,7 +3,8 @@ RSpec.feature "Users can view a ticket's attached files" do
   let(:user) { FactoryGirl.create :user }
   let(:project) { FactoryGirl.create :project }
   let(:ticket) { FactoryGirl.create :ticket, project: project, author: user }
-  let!(:attachment) { FactoryGirl.create :attachment, ticket: ticket }
+  let!(:attachment) { FactoryGirl.create :attachment, ticket: ticket}
+
   before do
     assign_role!(user, :viewer, project)
     login_as(user)

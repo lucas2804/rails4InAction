@@ -2,8 +2,6 @@ require "rails_helper"
 RSpec.feature "Users can view tickets" do
   let!(:author) { FactoryGirl.create(:user) }
   before do
-
-
     sublime = FactoryGirl.create(:project, name: "Sublime Text 3")
     FactoryGirl.create(:ticket, project: sublime,author: author,
                        name: "Make it shiny!",
@@ -23,6 +21,8 @@ RSpec.feature "Users can view tickets" do
 
     visit "/"
   end
+
+
   scenario "for a given project" do
     click_link "Sublime Text 3"
     expect(page).to have_content "Make it shiny!"
