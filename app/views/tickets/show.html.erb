@@ -68,11 +68,20 @@
               </div>
           <% end %>
 
-          <header>
-            <h3>Comments</h3>
-          </header>
 
-          <%= render "comments/form", ticket: @ticket, comment: @comment %>
+
+
+          <div id="comments">
+            <% if @ticket.comments.persisted.any? %>
+                <%= render @ticket.comments.persisted %>
+            <% else %>
+                <p>There are no comments for this ticket.</p>
+            <% end %>
+          </div>
+
+          <% if policy(@comment).create? %>
+              <%= render "comments/form", ticket: @ticket, comment: @comment %>
+          <% end %>
         </div>
       </div>
     </div>

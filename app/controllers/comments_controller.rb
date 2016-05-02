@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :create]
-
+  before_action :set_ticket
   # GET /comments
   # GET /comments.json
   def index
