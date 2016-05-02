@@ -140,3 +140,7 @@ section.sidebar tfoot th:last-child {
     border-radius: 5px;
     font-weight: 700;
 }
+
+table .state{
+    color: #333;
+}
