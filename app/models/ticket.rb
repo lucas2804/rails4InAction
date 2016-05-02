@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
 
+  belongs_to :state
 
   belongs_to :project
   belongs_to :author, class_name: "User"
@@ -10,5 +11,7 @@ class Ticket < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10}
   # Apply gem "carrierwave"
-  accepts_nested_attributes_for :attachments, reject_if: :all_blank
+  accepts_nested_attributes_for :attachments, reject_if: :all_bla
+
+
 end

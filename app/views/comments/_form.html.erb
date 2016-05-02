@@ -3,6 +3,9 @@
 </header>
 
 <%= simple_form_for [ticket, comment] do |f| %>
-    <%= f.input :text %>
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.input :text,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
+    <%= f.association :state,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
+
+
+    <%= f.submit class: "btn btn-primary btn-flat" %>
 <% end %>

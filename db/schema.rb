@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501162548) do
+ActiveRecord::Schema.define(version: 20160502081555) do
 
   create_table "_users_old_20160419", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -89,11 +89,14 @@ ActiveRecord::Schema.define(version: 20160501162548) do
     t.text     "text"
     t.integer  "ticket_id"
     t.integer  "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "state_id"
+    t.integer  "previous_state_id"
   end
 
   add_index "comments", ["author_id"], name: "index_comments_on_author_id"
+  add_index "comments", ["previous_state_id"], name: "index_comments_on_previous_state_id"
   add_index "comments", ["ticket_id"], name: "index_comments_on_ticket_id"
 
   create_table "line_items", force: :cascade do |t|
@@ -155,6 +158,11 @@ ActiveRecord::Schema.define(version: 20160501162548) do
   add_index "roles", ["project_id"], name: "index_roles_on_project_id"
   add_index "roles", ["user_id"], name: "index_roles_on_user_id"
 
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -180,9 +188,11 @@ ActiveRecord::Schema.define(version: 20160501162548) do
     t.datetime "updated_at",  null: false
     t.integer  "author_id"
     t.string   "attachment"
+    t.integer  "state_id"
   end
 
   add_index "tickets", ["author_id"], name: "index_tickets_on_author_id"
+  add_index "tickets", ["state_id"], name: "index_tickets_on_state_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

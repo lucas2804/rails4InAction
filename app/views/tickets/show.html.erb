@@ -69,8 +69,6 @@
           <% end %>
 
 
-
-
           <div id="comments">
             <% if @ticket.comments.persisted.any? %>
                 <%= render @ticket.comments.persisted %>
@@ -79,9 +77,19 @@
             <% end %>
           </div>
 
+
+          <% if @ticket.state.present? %>
+              <tr>
+                <th>State:</th>
+                <td><%= render @ticket.state %></td>
+              </tr>
+          <% end %>
+
           <% if policy(@comment).create? %>
               <%= render "comments/form", ticket: @ticket, comment: @comment %>
           <% end %>
+
+
         </div>
       </div>
     </div>
