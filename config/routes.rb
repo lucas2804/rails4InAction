@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
+  # resources :comments
   namespace :admin do
     resources :users
   end
   resources :tickets
-  resources :attachments, only: [:show]
+  resources :attachments, only: [:show, :new]
   # Non-Admin
   resources :projects, only: [:index, :show, :edit, :update] do
     resources :tickets
   end
+
+  resources :tickets, only: [] do
+    resources :comments, only: [:create]
+  end
+
 
   #Admin
   namespace :admin do
