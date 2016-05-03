@@ -12,8 +12,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     authorize @ticket, :show?
-    @comment = @ticket.comments.build
-    # @comment = @ticket.comments.build(state_id: @ticket.state_id)
+    @comment = @ticket.comments.build(state_id: @ticket.state_id)
   end
 
   # GET /tickets/new
@@ -21,7 +20,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = @project.tickets.build
     authorize @ticket, :create?
-    3.times { @ticket.attachments.build }
+    1.times { @ticket.attachments.build }
   end
 
   # GET /tickets/1/edit

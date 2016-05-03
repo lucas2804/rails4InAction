@@ -46,6 +46,10 @@
             <dd><%= @ticket.project_id %></dd>
             <dt>Description:</dt>
             <dd><%= @ticket.description %></dd>
+            <% if @ticket.state.present? %>
+                <dt>State:</dt>
+                <dd><%= render @ticket.state %></dd>
+            <% end %>
           </dl>
           <dl class="dl-horizontal author">
             <!--Author Info-->
@@ -78,12 +82,7 @@
           </div>
 
 
-          <% if @ticket.state.present? %>
-              <tr>
-                <th>State:</th>
-                <td><%= render @ticket.state %></td>
-              </tr>
-          <% end %>
+
 
           <% if policy(@comment).create? %>
               <%= render "comments/form", ticket: @ticket, comment: @comment %>
