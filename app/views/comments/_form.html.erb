@@ -4,8 +4,10 @@
 
 <%= simple_form_for [ticket, comment] do |f| %>
     <%= f.input :text,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
-    <%= f.association :state,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
 
+    <% if policy(ticket).change_state? %>
+        <%= f.association :state,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
+    <% end %>
 
     <%= f.submit class: "btn btn-primary btn-flat" %>
 <% end %>
