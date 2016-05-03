@@ -2,6 +2,17 @@ class TicketsController < ApplicationController
   before_action :set_project
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
+  def search
+    authorize @project, :show?
+    if params[:search].present?
+      @tickets = @project.tickets.search("tag:#{params[:search]}")
+    else
+      @tickets = @project.tickets
+    end
+    render "projects/show"
+  end
+
+
   # GET /tickets
   # GET /tickets.json
   def index
@@ -12,6 +23,8 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     authorize @ticket, :show?
+    @comment = @ticket.comments.build(state_id: @ticket.state_id)
+
   end
 
   # GET /tickets/new
@@ -19,9 +32,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = @project.tickets.build
     authorize @ticket, :create?
-    # 3.times { @ticket.attachments.build }
-    @ticket.attachments.build
-
+    1.times { @ticket.attachments.build }
   end
 
   # GET /tickets/1/edit
@@ -32,13 +43,17 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    # @ticket = Ticket.new(ticket_params)
-    @ticket = @project.tickets.build(ticket_params)
+    @ticket = @project.tickets.new
+    whitelisted_params = ticket_params
+    unless policy(@ticket).tag?
+      whitelisted_params.delete(:tag_names)
+    end
+    @ticket.attributes = whitelisted_params
     @ticket.author = current_user
     authorize @ticket, :create?
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to [@project, @ticket], notice: 'Ticket has been created.' }
+        format.html { redirect_to [@project, @ticket], notice: 'Ticket has been created."' }
         format.json { render :show, status: :created, location: @ticket }
       else
         flash[:notice] = 'Ticket has not been created.'
@@ -88,7 +103,7 @@ class TicketsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ticket_params
-    params.require(:ticket).permit(:name, :description, :attachment,
+    params.require(:ticket).permit(:name, :description, :tag_names,
                                    attachments_attributes: [:file, :file_cache])
   end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  # resources :comments
   namespace :admin do
     resources :users
   end
@@ -6,13 +8,36 @@ Rails.application.routes.draw do
   resources :attachments, only: [:show, :new]
   # Non-Admin
   resources :projects, only: [:index, :show, :edit, :update] do
-    resources :tickets
+    resources :tickets do
+      collection do
+        get :search
+      end
+    end
   end
+
+  resources :tickets, only: [] do
+    resources :comments, only: [:create]
+    resources :tags, only: [] do
+      member do
+        delete :remove
+      end
+    end
+  end
+
 
   #Admin
   namespace :admin do
     root "application#index"
     resources :projects, only: [:new, :create, :destroy]
+
+
+    resources :states, only: [:index, :new, :create] do
+      member do
+        get :make_default
+      end
+    end
+
+
     resources :users do
       member do
         patch :archive

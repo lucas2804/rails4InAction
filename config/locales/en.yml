@@ -44,7 +44,7 @@ en:
 
   layouts:
       application:
-          title: "Ruby/Vi"
+          title: "Ruby-EN"
           questions: "Question"
           news: "Tin tức"
           contact: "Liên Hệ"

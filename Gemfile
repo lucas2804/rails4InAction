@@ -16,6 +16,7 @@ gem 'pundit'
 
 # UPLOAD
 gem "carrierwave"
+gem "searcher", github: "radar/searcher"
 
 # 7 GEM NEED TO BE INSTALLED
 gem 'awesome_print'
@@ -67,7 +68,7 @@ group :development, :test do
   gem 'guard-minitest', '2.3.1'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem "selenium-webdriver", "~> 2.45"
+  gem "selenium-webdriver"
   gem "database_cleaner"
 end
 

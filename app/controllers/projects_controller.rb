@@ -11,6 +11,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     authorize @project, :show?
+
+    #Serve for search
+    @tickets = @project.tickets
   end
   # GET /projects/1/edit
   def edit

@@ -1,0 +1,7 @@
+<span class="tag">
+  <%= link_to remove_ticket_tag_path(ticket, tag), method: :delete, remote: true,
+              class: "remove label label-info", title: "remove" do %>
+      <span class='fa fa-close'></span>
+      <%= tag.name %>
+  <% end %>
+</span>

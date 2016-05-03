@@ -46,6 +46,17 @@
             <dd><%= @ticket.project_id %></dd>
             <dt>Description:</dt>
             <dd><%= @ticket.description %></dd>
+            <% if @ticket.state.present? %>
+                <dt>State:</dt>
+                <dd><%= render @ticket.state %></dd>
+            <% end %>
+
+            <% if @ticket.tags.any? %>
+                <span id="tags">
+                  <dt>Tags:</dt>
+                  <dd><%= render @ticket.tags, ticket: @ticket %></dd>
+                </span>
+            <% end %>
           </dl>
           <dl class="dl-horizontal author">
             <!--Author Info-->
@@ -67,6 +78,24 @@
                 <% end %>
               </div>
           <% end %>
+
+
+          <div id="comments">
+            <% if @ticket.comments.persisted.any? %>
+                <%= render @ticket.comments.persisted %>
+            <% else %>
+                <p>There are no comments for this ticket.</p>
+            <% end %>
+          </div>
+
+
+
+
+          <% if policy(@comment).create? %>
+              <%= render "comments/form", ticket: @ticket, comment: @comment %>
+          <% end %>
+
+
         </div>
       </div>
     </div>
