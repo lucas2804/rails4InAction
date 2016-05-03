@@ -29,6 +29,7 @@
             <tr>
               <th>ID</th>
               <th>Name</th>
+              <th>Default</th>
               <th>Color</th>
             </tr>
             </thead>
@@ -36,6 +37,14 @@
             <%= content_tag_for(:tr, @states) do |admin_state| %>
                 <td><%= admin_state.id %></td>
                 <td><%= admin_state.name %></td>
+
+                <td>
+                  <% if admin_state.default? %>
+                      (Default)
+                  <% else %>
+                      <%= link_to "Make Default", make_default_admin_state_path(admin_state) %>
+                  <% end %>
+                </td>
                 <td>
                   <span class="label" style='padding: 8px;background: <%= admin_state.color %> '>
                   <%= admin_state.color %></span>

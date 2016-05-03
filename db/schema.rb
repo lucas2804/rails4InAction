@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502081555) do
+ActiveRecord::Schema.define(version: 20160503011601) do
 
   create_table "_users_old_20160419", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -159,8 +159,9 @@ ActiveRecord::Schema.define(version: 20160502081555) do
   add_index "roles", ["user_id"], name: "index_roles_on_user_id"
 
   create_table "states", force: :cascade do |t|
-    t.string "name"
-    t.string "color"
+    t.string  "name"
+    t.string  "color"
+    t.boolean "default"
   end
 
   create_table "stores", force: :cascade do |t|
