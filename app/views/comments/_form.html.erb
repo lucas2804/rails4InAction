@@ -9,5 +9,7 @@
         <%= f.association :state,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
     <% end %>
 
+    <%= render "tags/form", f: f %>
+
     <%= f.submit class: "btn btn-primary btn-flat" %>
 <% end %>
