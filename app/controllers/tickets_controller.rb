@@ -87,7 +87,7 @@ class TicketsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ticket_params
-    params.require(:ticket).permit(:name, :description,
+    params.require(:ticket).permit(:name, :description, :tag_names,
                                    attachments_attributes: [:file, :file_cache])
   end
 end

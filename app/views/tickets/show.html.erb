@@ -50,6 +50,13 @@
                 <dt>State:</dt>
                 <dd><%= render @ticket.state %></dd>
             <% end %>
+
+            <% if @ticket.tags.any? %>
+                <span id="tags">
+                  <dt>Tags:</dt>
+                  <dd><%= render @ticket.tags %></dd>
+                </span>
+            <% end %>
           </dl>
           <dl class="dl-horizontal author">
             <!--Author Info-->

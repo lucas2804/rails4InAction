@@ -133,14 +133,18 @@ section.sidebar tfoot th:last-child {
 }
 
 .state {
-    margin-left: 5px;
-    font-size: 12px;
-    padding: 0.3em 0.6em;
+    font-size: 11px;
+    padding: 3px 0.6em;
     color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     font-weight: 700;
 }
 
-table .state{
-    color: #333;
+.tag{
+    margin-right: 6px;
 }
+
+#tags{
+    margin-top: 10px;
+}
+
