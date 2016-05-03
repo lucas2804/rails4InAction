@@ -1,5 +1,8 @@
 class Ticket < ActiveRecord::Base
 
+
+
+
   # Relations
   belongs_to :state
   belongs_to :project
@@ -11,6 +14,13 @@ class Ticket < ActiveRecord::Base
 
   # Events
   before_create :assign_default_state
+
+  # Apply "search" gem
+  searcher do
+    label :tag, from: :tags, field: "name"
+    # label :state, from: :states, field: "name"
+  end
+
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10}

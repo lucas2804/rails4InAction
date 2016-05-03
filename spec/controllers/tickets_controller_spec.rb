@@ -13,4 +13,6 @@ RSpec.describe TicketsController, type: :controller do
          project_id: project.id
     expect(Ticket.last.tags).to be_empty
   end
+
+
 end

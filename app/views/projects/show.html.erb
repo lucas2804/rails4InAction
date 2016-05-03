@@ -16,6 +16,15 @@
     <div class="col-md-12">
       <div class="box box-primary">
         <div class="box-header">
+
+          <div class="box-tools pull-left">
+            <%= form_tag search_project_tickets_path(@project), method: :get,
+                         class: "form-inline search-tickets" do %>
+                <%= label_tag "search", "Search", class: "sr-only" %>
+                <%= text_field_tag "search", params[:search], placeholder: "Search by tag", class: "form-control" %>
+                <%= submit_tag "Search", class: "btn btn-flat bg-black" %>
+            <% end %>
+          </div>
           <div class="box-tools pull-right">
 
             <% if policy(@project).update? %>
@@ -43,13 +52,14 @@
           </div>
         </div>
         <div class="box-body">
+
           <dl class="dl-horizontal">
             <dt>Project Name:</dt>
             <dd><%= @project.name %></dd>
             <dt>Tickets:</dt>
             <dd>
               <ul id="tickets">
-                <% @project.tickets.each do |ticket| %>
+                <% @tickets.each do |ticket| %>
                     <li>
                       #<%= ticket.id %> -
                       <%= link_to ticket.name, [@project, ticket] %>

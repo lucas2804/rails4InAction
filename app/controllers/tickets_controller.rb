@@ -2,6 +2,17 @@ class TicketsController < ApplicationController
   before_action :set_project
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
+  def search
+    authorize @project, :show?
+    if params[:search].present?
+      @tickets = @project.tickets.search("tag:#{params[:search]}")
+    else
+      @tickets = @project.tickets
+    end
+    render "projects/show"
+  end
+
+
   # GET /tickets
   # GET /tickets.json
   def index
@@ -13,6 +24,7 @@ class TicketsController < ApplicationController
   def show
     authorize @ticket, :show?
     @comment = @ticket.comments.build(state_id: @ticket.state_id)
+
   end
 
   # GET /tickets/new
@@ -87,7 +99,6 @@ class TicketsController < ApplicationController
   def set_ticket
     @ticket = @project.tickets.find(params[:id])
   end
-
 
 
   # Never trust parameters from the scary internet, only allow the white list through.

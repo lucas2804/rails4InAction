@@ -54,7 +54,7 @@
             <% if @ticket.tags.any? %>
                 <span id="tags">
                   <dt>Tags:</dt>
-                  <dd><%= render @ticket.tags %></dd>
+                  <dd><%= render @ticket.tags, ticket: @ticket %></dd>
                 </span>
             <% end %>
           </dl>
