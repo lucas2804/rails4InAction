@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = @ticket.comments.build(comment_params)
+    @comment = @ticket.comments.build(sanitized_parameters)
     @comment.author = current_user
     authorize @comment, :create?
     if @comment.save
@@ -70,4 +70,15 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text, :state_id, :tag_names)
   end
 
+
+  def sanitized_parameters
+    whitelisted_params = comment_params
+    unless policy(@ticket).change_state?
+      whitelisted_params.delete(:state_id)
+    end
+    unless policy(@ticket).tag?
+      whitelisted_params.delete(:tag_names)
+    end
+    whitelisted_params
+  end
 end

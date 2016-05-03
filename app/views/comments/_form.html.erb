@@ -9,7 +9,10 @@
         <%= f.association :state,  input_html: {class: "form-control"}, wrapper_html: {class: "form-group"} %>
     <% end %>
 
-    <%= render "tags/form", f: f %>
+    <% if policy(ticket).tag? %>
+        <%= render "tags/form", f: f %>
+    <% end %>
+
 
     <%= f.submit class: "btn btn-primary btn-flat" %>
 <% end %>

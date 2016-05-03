@@ -31,8 +31,12 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    # @ticket = Ticket.new(ticket_params)
-    @ticket = @project.tickets.build(ticket_params)
+    @ticket = @project.tickets.new
+    whitelisted_params = ticket_params
+    unless policy(@ticket).tag?
+      whitelisted_params.delete(:tag_names)
+    end
+    @ticket.attributes = whitelisted_params
     @ticket.author = current_user
     authorize @ticket, :create?
     respond_to do |format|
@@ -83,6 +87,7 @@ class TicketsController < ApplicationController
   def set_ticket
     @ticket = @project.tickets.find(params[:id])
   end
+
 
 
   # Never trust parameters from the scary internet, only allow the white list through.
