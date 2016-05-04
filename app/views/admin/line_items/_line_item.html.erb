@@ -1,0 +1,9 @@
+<% if line_item == @current_item %>
+    <tr id="current_item">
+<% else %>
+    <tr>
+<% end %>
+  <td width="30%"><%= line_item.quantity %> &times; <%= line_item.product.title %></td>
+  <td height="50%"><%= image_tag(line_item.product.image_url , style: "width: 60px ; height: 60px" )%></td>
+  <td width="20%" style="text-align: center"><%= number_to_currency line_item.product.price %></td>
+</tr>
