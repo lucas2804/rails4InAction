@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails luc_cms: test" uuid="c2a9af3f-8089-4294-8df0-2c4282537990">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails luc_cms: production" uuid="b2599384-c07a-435b-abb5-6864892b1ab4">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails luc_cms: development" uuid="93315332-6ed7-43e9-a3ff-da7d7b76f5ce">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>

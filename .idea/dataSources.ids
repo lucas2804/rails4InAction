@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails luc_cms: test" uuid="c2a9af3f-8089-4294-8df0-2c4282537990">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="_users_old_20160419" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="encrypted_password" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="remember_created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="sign_in_count" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="current_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="unconfirmed_email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="admin_books" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="attachments" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="file" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_attachments_on_ticket_id" unique="true" columns="ticket_id"/>
+    </table>
+    <table name="brands" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="brands_categories_subcategories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="brand_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="sub_category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="carts" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="categories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="collaborations" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="post_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_collaborations_on_user_id" unique="true" columns="user_id"/>
+      <index name="index_collaborations_on_post_id" unique="true" columns="post_id"/>
+    </table>
+    <table name="comments" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="text" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="author_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="previous_state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="index_comments_on_ticket_id" unique="true" columns="ticket_id"/>
+      <index name="index_comments_on_previous_state_id" unique="true" columns="previous_state_id"/>
+      <index name="index_comments_on_author_id" unique="true" columns="author_id"/>
+    </table>
+    <table name="jokes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="line_items" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="cart_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4" def="MQ=="/>
+      <column name="order_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="sale_tax" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="price" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <primary-key columns="id"/>
+      <index name="index_line_items_on_product_id" unique="true" columns="product_id"/>
+      <index name="index_line_items_on_order_id" unique="true" columns="order_id"/>
+      <index name="index_line_items_on_cart_id" unique="true" columns="cart_id"/>
+    </table>
+    <table name="orders" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="pay_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="posts" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_posts_on_user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="products" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="image_url" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DECIMAL" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="product_type" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="sale_tax" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="products_users" schema="" catalog="" type="TABLE">
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="projects" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="roles" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="project_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_roles_on_user_id" unique="true" columns="user_id"/>
+      <index name="index_roles_on_project_id" unique="true" columns="project_id"/>
+    </table>
+    <table name="schema_migrations" schema="" catalog="" type="TABLE">
+      <column name="version" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <index name="unique_schema_migrations" unique="true" columns="version"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="states" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="default" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="stores" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="sub_categories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tags" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tags_tickets" schema="" catalog="" type="TABLE">
+      <column name="tag_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="test_adminltes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tickets" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="project_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="author_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="attachment" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="index_tickets_on_state_id" unique="true" columns="state_id"/>
+      <index name="index_tickets_on_author_id" unique="true" columns="author_id"/>
+    </table>
+    <table name="user_votes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="joke_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="voted" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="users" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="encrypted_password" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="remember_created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="sign_in_count" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="current_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="confirmation_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="unconfirmed_email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="archived_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
+      <index name="index_users_on_email" unique="true" columns="email"/>
+      <index name="index_users_on_confirmation_token" unique="true" columns="confirmation_token"/>
+    </table>
+  </data-source>
+  <data-source name="Rails luc_cms: production" uuid="b2599384-c07a-435b-abb5-6864892b1ab4">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+  </data-source>
+  <data-source name="Rails luc_cms: development" uuid="93315332-6ed7-43e9-a3ff-da7d7b76f5ce">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="_users_old_20160419" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="encrypted_password" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="remember_created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="sign_in_count" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="current_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="unconfirmed_email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="admin_books" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="attachments" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="file" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_attachments_on_ticket_id" unique="true" columns="ticket_id"/>
+    </table>
+    <table name="brands" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="brands_categories_subcategories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="brand_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="sub_category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="carts" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="categories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="collaborations" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="post_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_collaborations_on_post_id" unique="true" columns="post_id"/>
+      <index name="index_collaborations_on_user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="comments" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="text" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="author_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="previous_state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="index_comments_on_previous_state_id" unique="true" columns="previous_state_id"/>
+      <index name="index_comments_on_author_id" unique="true" columns="author_id"/>
+      <index name="index_comments_on_ticket_id" unique="true" columns="ticket_id"/>
+    </table>
+    <table name="jokes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="line_items" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="cart_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4" def="MQ=="/>
+      <column name="order_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="sale_tax" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="price" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <primary-key columns="id"/>
+      <index name="index_line_items_on_order_id" unique="true" columns="order_id"/>
+      <index name="index_line_items_on_cart_id" unique="true" columns="cart_id"/>
+      <index name="index_line_items_on_product_id" unique="true" columns="product_id"/>
+    </table>
+    <table name="orders" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="pay_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="posts" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_posts_on_user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="products" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="image_url" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="DECIMAL" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="product_type" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="sale_tax" sqlType="DECIMAL(8,2)" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="products_users" schema="" catalog="" type="TABLE">
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="product_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="projects" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="roles" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="project_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_roles_on_project_id" unique="true" columns="project_id"/>
+      <index name="index_roles_on_user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="schema_migrations" schema="" catalog="" type="TABLE">
+      <column name="version" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <index name="unique_schema_migrations" unique="true" columns="version"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="states" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="default" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="stores" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="sub_categories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="category_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="published" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tags" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tags_tickets" schema="" catalog="" type="TABLE">
+      <column name="tag_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="ticket_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="test_adminltes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="tickets" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="project_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="author_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="attachment" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="state_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="index_tickets_on_state_id" unique="true" columns="state_id"/>
+      <index name="index_tickets_on_author_id" unique="true" columns="author_id"/>
+    </table>
+    <table name="user_votes" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="joke_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="voted" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="users" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="admin" sqlType="BOOLEAN" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="encrypted_password" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="reset_password_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="reset_password_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="remember_created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="sign_in_count" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="current_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="current_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_sign_in_ip" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="confirmation_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmed_at" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="confirmation_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="unconfirmed_email" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="archived_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="index_users_on_confirmation_token" unique="true" columns="confirmation_token"/>
+      <index name="index_users_on_reset_password_token" unique="true" columns="reset_password_token"/>
+      <index name="index_users_on_email" unique="true" columns="email"/>
+    </table>
+  </data-source>
+</component>
